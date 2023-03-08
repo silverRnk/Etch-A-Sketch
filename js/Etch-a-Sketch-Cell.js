@@ -63,3 +63,27 @@ function changeElementBackgroundlColor(element, color){
     element.style = `background-color: ${color}`
     
 }
+
+
+//Get color selection array of Elements
+// then return the color of selected
+// item in string
+function getSelectedColor(colorSelectionArray){
+    let findSelected = (array) => {
+        let isElementSelected = (element) => {
+            if(element == 'true'){
+                return true
+            }else{
+                return false
+            }
+        }
+        console.log(isElementSelected(array.slice(0, 1)[0].getAttribute("selected")));
+        if(isElementSelected(array.slice(0, 1)[0].getAttribute("selected"))){
+            return array.slice(0, 1)[0].getAttribute("color");
+        }else{
+            return findSelected(array.slice(1, array.length));
+        }
+    }
+
+    return findSelected(colorSelectionArray);
+}
