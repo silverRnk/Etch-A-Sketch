@@ -1,0 +1,94 @@
+body{
+    margin:0;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 99vh;
+}
+
+.content{
+    display:grid;
+    border: 1px solid black;
+    height: 700px;
+    width: 700px;
+    
+}
+
+.size-selection{
+    --height: 400px;
+    --width: 300px;
+    --padding-top-bottom: 20px;
+    --padding-left-right: 30px;
+    position:absolute;
+    top: calc(50% - (var(--height) / 2)
+         - (var(--padding-top-bottom) / 2));
+    left: calc(50% - (var(--width) / 2)
+         - (var(--padding-left-right) / 2));
+    height: var(--height);
+    width: var(--width);
+    background-color: rgb(233, 233, 233);
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px gray;
+    padding: var(--padding-top-bottom)
+         var(--padding-left-right);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.size-selection>.instruction{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.size-selection>.choices{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.size-selection-item{
+    width: 170px;
+    height: 70px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.cell{
+    border: 1px solid black;
+}
+
+/*
+menu
+*/
+
+.menu{
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.pen{
+    width: 100px;
+    height: 100px;
+}
+
+.color-selection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.color-selection-item{
+    width: 75px;
+    height: 75px;
+    box-shadow: 2px 2px 5px lightgray;
+    border-radius: 50%;
+}
