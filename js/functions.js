@@ -1,34 +1,4 @@
-//defines the etch a sketch cell
-class EtchASketchCell {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.color = 'transparent';
-    }
-    
-    changeCellColor(color) {
-        this.color = color;
-    }
-}
 
-
-// takes the no of column and no of row in numbers 
-//then return a array of array of EtchASketchCell
-function createEtchASketchGrid(height, width){
-    let column = [];
-    for(let y = 0; y<height;y++){
-        let row = [];
-        for(let x = 0; x<width; x++){
-            row[x] = new EtchASketchCell(x, y);
-        }
-        column[y] = row;
-    }
-    return column;
-    
-}
-
-let oneByOne = createEtchASketchGrid(1, 1);
-let tenByTen = createEtchASketchGrid(10, 10);
 
 //takes an element DOM, no of Column and Row in numbers, and
 // size in string
@@ -61,9 +31,7 @@ function createGridDisplay(dom, noOfColumn, noOfRow, size){
 //Change element style background-color
 function changeElementBackgroundlColor(element, color){
     element.style = `background-color: ${color}`
-    
 }
-
 
 //Get color selection array of Elements
 // then return the color of selected
@@ -87,3 +55,73 @@ function getSelectedColor(colorSelectionArray){
 
     return findSelected(colorSelectionArray);
 }
+
+function createEtchASketchGrid(noOfColumn, noOfRow, color) {
+  let etchASketchDisplay, cellArray, isMouseDown;
+  cellArray = [];
+  isMouseDown = false;
+  etchASketchDisplay = document.querySelector(".content");
+
+  //defines the Cells in Array
+  cellArray = etchASketchDisplay
+    .getElementsByClassName("cell");
+  cellArray = Array.prototype
+    .slice.call(cellArray);
+
+  createGridDisplay(
+    etchASketchDisplay,
+    noOfColumn, 
+    noOfRow, 
+    "1fr");
+
+  etchASketchDisplay.addEventListener("mousedown", () => {
+    isMouseDown = true;
+  });
+
+  etchASketchDisplay.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
+
+  cellArray.forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      if (isMouseDown) {
+        let colorSelection = document.querySelectorAll(
+          ".color-selection-item"
+        );
+        colorSelection = Array.from(colorSelection);
+        console.log(color);
+        changeElementBackgroundlColor(
+          element,
+          getSelectedColor(colorSelection)
+        );
+      }
+    });
+  });
+}
+
+function showColorSelected() {
+    let colorSelectionItem = document.querySelectorAll(
+      ".color-selection-item"
+    );
+    colorSelectionItem = Array.from(colorSelectionItem);
+  
+    //remove deselect
+    colorSelectionItem.forEach((element) => {
+      element.classList.remove("selected");
+    });
+  
+    //Show selected color
+    colorSelectionItem.forEach((element) => {
+      if (element.getAttribute("selected") == "true") {
+        element.classList.add("selected");
+      }
+    });
+  }
+  
+  function eraseAll() {
+    let cellArrays = document.querySelectorAll(".cell");
+  
+    cellArrays.forEach((element) => {
+      element.style = "background-color: transparent";
+    });
+  }
