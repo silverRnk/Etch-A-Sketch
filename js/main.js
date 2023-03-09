@@ -4,10 +4,20 @@ const colorSelectionDisplay =
   menuColorPicker.querySelector(".color-selection");
 console.log(colorSelectionDisplay.classList);
 
-let colorSelectionItem = colorSelectionDisplay.querySelectorAll(
+let colorSelectionItem,
+ sizeSelectionElement,
+ sizeSelectionCard;
+
+colorSelectionItem = colorSelectionDisplay.querySelectorAll(
   ".color-selection-item"
 );
 colorSelectionItem = Array.from(colorSelectionItem);
+
+sizeSelectionCard = document.querySelector(".size-selection");
+sizeSelectionElement = document.querySelectorAll(".size-selection-item");
+sizeSelectionElement = Array.from(sizeSelectionElement);
+
+createEtchASketchGrid(10, 10);
 
 showColorSelected();
 
@@ -27,28 +37,17 @@ colorSelectionItem.forEach((item) => {
     });
 
     item.setAttribute("selected", true);
-
     showColorSelected();
   });
 });
 
-let sizeSelectionElement, sizeSelectionCard;
-
-createEtchASketchGrid(10, 10, selectedColor);
-
-sizeSelectionCard = document.querySelector(".size-selection");
-
-sizeSelectionElement = document.querySelectorAll(".size-selection-item");
-
-sizeSelectionElement = Array.from(sizeSelectionElement);
-
 sizeSelectionElement.forEach((selectionItem) => {
   selectionItem.addEventListener("click", () => {
-    let cols, rows, etchASketchDisplay;
+    let cols, rows;
     cols = Number(selectionItem.getAttribute("Cols"));
     rows = Number(selectionItem.getAttribute("Rows"));
 
-    createEtchASketchGrid(cols, rows, selectedColor);
+    createEtchASketchGrid(cols, rows);
     sizeSelectionCard.style = "display:none;";
   });
 });

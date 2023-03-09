@@ -61,23 +61,21 @@ function getSelectedColor(colorSelectionArray){
     return findSelected(colorSelectionArray);
 }
 
-function createEtchASketchGrid(noOfColumn, noOfRow, color) {
+function createEtchASketchGrid(noOfColumn, noOfRow) {
   let etchASketchDisplay, cellArray, isMouseDown;
   cellArray = [];
   isMouseDown = false;
   etchASketchDisplay = document.querySelector(".content");
-
-  //defines the Cells in Array
-  cellArray = etchASketchDisplay
-    .getElementsByClassName("cell");
-  cellArray = Array.prototype
-    .slice.call(cellArray);
 
   createGridDisplay(
     etchASketchDisplay,
     noOfColumn, 
     noOfRow, 
     "1fr");
+
+  //defines the Cells in Array
+  cellArray = etchASketchDisplay.getElementsByClassName("cell");
+  cellArray = Array.prototype.slice.call(cellArray);
 
   etchASketchDisplay.addEventListener("mousedown", () => {
     isMouseDown = true;
@@ -94,7 +92,6 @@ function createEtchASketchGrid(noOfColumn, noOfRow, color) {
           ".color-selection-item"
         );
         colorSelection = Array.from(colorSelection);
-        console.log(color);
         changeElementBackgroundlColor(
           element,
           getSelectedColor(colorSelection)
