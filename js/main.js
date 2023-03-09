@@ -1,5 +1,5 @@
 const menuColorPicker = document.querySelector(".pen-color");
-const menuEraser = document.querySelector(".eraser");
+const menuEraser = document.querySelector(".eraser-icons");
 const colorSelectionDisplay =
   menuColorPicker.querySelector(".color-selection");
 console.log(colorSelectionDisplay.classList);

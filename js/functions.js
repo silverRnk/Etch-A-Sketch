@@ -81,10 +81,6 @@ function createEtchASketchGrid(noOfColumn, noOfRow) {
   cellArray = etchASketchDisplay.getElementsByClassName("cell");
   cellArray = Array.prototype.slice.call(cellArray);
 
-  etchASketchDisplay.addEventListener("mousedown", () => {
-    isMouseDown = true;
-  });
-
   etchASketchDisplay.addEventListener("mouseup", () => {
     isMouseDown = false;
   });
@@ -101,6 +97,19 @@ function createEtchASketchGrid(noOfColumn, noOfRow) {
           getSelectedColor(colorSelection)
         );
       }
+    });
+
+    element.addEventListener("mousedown", () => {
+      let colorSelection = document.querySelectorAll(
+        ".color-selection-item"
+      );
+
+      isMouseDown = true;
+      colorSelection = Array.from(colorSelection);
+      changeElementBackgroundlColor(
+        element,
+        getSelectedColor(colorSelection)
+      );
     });
   });
 }

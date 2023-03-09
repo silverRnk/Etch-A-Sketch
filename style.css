@@ -25,6 +25,8 @@ frame
 }
 
 .content{
+    /*TODO add box-shadow
+    */
     align-self: center;
     justify-self: center;
     display:grid;
