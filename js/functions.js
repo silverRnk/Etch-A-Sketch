@@ -6,6 +6,7 @@ function createGridDisplay(dom, noOfColumn, noOfRow, size){
     let grids, cellCount;
     cellCount = noOfColumn*noOfRow;
     grids = ''
+
     //create a grid cell
     dom.style=
     `grid-template-columns: repeat(${noOfColumn}, ${size});` + 
@@ -28,6 +29,10 @@ function createGridDisplay(dom, noOfColumn, noOfRow, size){
     
 }
 
+/*
+color is 'red', 'green, 'blue', or 'rnd_rgb'
+element is html element
+*/
 //Change element style background-color
 function changeElementBackgroundlColor(element, color){
     element.style = `background-color: ${color}`
