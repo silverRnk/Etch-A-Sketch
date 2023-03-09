@@ -35,7 +35,17 @@ element is html element
 */
 //Change element style background-color
 function changeElementBackgroundlColor(element, color){
+  if(color != 'rnd_rgb'){
     element.style = `background-color: ${color}`
+  }else{
+    let red, green, blue;
+    red = Math.floor((Math.random()*205)+25);
+    green = Math.floor((Math.random()*205)+25);
+    blue = Math.floor((Math.random()*205)+25);
+    element.style='background-color:' +
+     `rgb(${red}, ${green}, ${blue})`;
+  }
+    
 }
 
 //Get color selection array of Elements

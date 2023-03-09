@@ -139,5 +139,9 @@ menu
     background-color: green;
 }
 
+.color-selection-item.rnd_rgb{
+    background: linear-gradient(red, green, blue);
+}
+
 
 
