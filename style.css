@@ -20,6 +20,8 @@ frame
     background-color: #FBFE6A;
     display:grid;
     grid-template-rows: 2rem 650px 1fr;
+    border-radius: 30px;
+    box-shadow: 3px 3px 5px gray;
 }
 
 .content{
@@ -30,6 +32,10 @@ frame
     height: 650px;
     width: 650px;
     background-color: #f4eded;
+}
+
+.frame-name{
+    
 }
 
 .size-selection{
@@ -91,11 +97,11 @@ menu
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: 100px;
-    background-color: white;
 }
 
 .slide-eraser{
     grid-column: 1 / -1;
+    padding: 0px 20px
 }
 
 .slide-eraser>input{
@@ -161,6 +167,26 @@ menu
 
 .color-selection-item.rnd_rgb{
     background: linear-gradient(red, green, blue);
+}
+
+.eraser{
+    display: flex;
+}
+
+.eraser-icons{
+    display: block;
+    margin: auto 10px auto auto;
+    width: auto;
+    height: 50px;
+    cursor: pointer;
+}
+
+.eraser-icons:hover{
+    box-shadow: 2px 2px 5px black;
+}
+
+.eraser-icons:active{
+    box-shadow: inset 2px 2px 5px black;
 }
 
 
