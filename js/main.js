@@ -1,5 +1,7 @@
 const menuColorPicker = document.querySelector(".pen-color");
 const menuEraser = document.querySelector(".eraser-icons");
+const menuEraserSlider = document.querySelector('.slide-eraser>input');
+
 const colorSelectionDisplay =
   menuColorPicker.querySelector(".color-selection");
 console.log(colorSelectionDisplay.classList);
@@ -25,6 +27,11 @@ menuEraser.addEventListener("click", () => {
   eraseAll();
 });
 
+menuEraserSlider.addEventListener('input',
+ () => {
+  eraseColumnCells(menuEraserSlider.value);
+ })
+
 colorSelectionItem.forEach((item) => {
   item.addEventListener("click", () => {
     colorSelectionItem.forEach((element) => {
@@ -35,6 +42,8 @@ colorSelectionItem.forEach((item) => {
     showColorSelected();
   });
 });
+
+
 
 sizeSelectionElement.forEach((selectionItem) => {
   selectionItem.addEventListener("click", () => {
