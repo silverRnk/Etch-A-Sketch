@@ -1,36 +1,16 @@
-function showColorSelected() {
-  let colorSelectionItem = document.querySelectorAll(
-    ".color-selection-item"
-  );
-  colorSelectionItem = Array.from(colorSelectionItem);
-
-  //remove deselect
-  colorSelectionItem.forEach((element) => {
-    element.classList.remove("selected");
-  });
-
-  //Show selected color
-  colorSelectionItem.forEach((element) => {
-    if (element.getAttribute("selected") == "true") {
-      element.classList.add("selected");
-    }
-  });
-}
-
-function eraseAll() {
-  let cellArrays = document.querySelectorAll(".cell");
-
-  cellArrays.forEach((element) => {
-    element.style = "background-color: transparent";
-  });
-}
-
-//Menu
 const menuColorPicker = document.querySelector(".pen-color");
 const menuEraser = document.querySelector(".eraser");
-let colorSelectionDisplay =
+const colorSelectionDisplay =
   menuColorPicker.querySelector(".color-selection");
 console.log(colorSelectionDisplay.classList);
+
+let colorSelectionItem = colorSelectionDisplay.querySelectorAll(
+  ".color-selection-item"
+);
+colorSelectionItem = Array.from(colorSelectionItem);
+
+showColorSelected();
+
 menuColorPicker.querySelector(".pen").addEventListener("click", () => {
   console.log("hello");
   colorSelectionDisplay.classList.toggle("show");
@@ -39,12 +19,6 @@ menuColorPicker.querySelector(".pen").addEventListener("click", () => {
 menuEraser.addEventListener("click", () => {
   eraseAll();
 });
-
-let selectedColor = "red";
-let colorSelectionItem = colorSelectionDisplay.querySelectorAll(
-  ".color-selection-item"
-);
-colorSelectionItem = Array.from(colorSelectionItem);
 
 colorSelectionItem.forEach((item) => {
   item.addEventListener("click", () => {
