@@ -141,3 +141,15 @@ function eraseAll() {
     element.style = "background-color: transparent";
   });
 }
+
+//get the column in number then delete erase the column
+function eraseColumnCells(colm){
+  let cellArrayColms= document
+  .querySelectorAll(`.cell[x-coord="${colm}"]`);
+
+  cellArrayColms = Array.from(cellArrayColms);
+
+  cellArrayColms.forEach(element => {
+    element.style = "background-color:transparent;"
+  })
+}
