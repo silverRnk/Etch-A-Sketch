@@ -101,10 +101,14 @@ menu
 
 .color-selection{
     margin: 0 auto;
-    display: grid;
+    display: none;
     grid-template-columns: 50px;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 20px;
+}
+
+.show{
+    display: grid;
 }
 
 .color-selection-item{
@@ -122,4 +126,18 @@ menu
     border: 1px solid black;
     box-shadow: 5px 5px 5px gray;
 }
+
+.color-selection-item.red{
+    background-color: red;
+}
+
+.color-selection-item.blue{
+    background-color: blue;
+}
+
+.color-selection-item.green{
+    background-color: green;
+}
+
+
 

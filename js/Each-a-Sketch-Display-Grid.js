@@ -37,36 +37,64 @@ function main(noOfColumn, noOfRow, color) {
 }
 
 function showColorSelected(){
-  let colorSelections = document
+  let colorSelectionItem = document
     .querySelectorAll('.color-selection-item');
-  colorSelection = Array.from(colorSelections);
+  colorSelectionItem = Array.from(colorSelectionItem);
 
   //remove deselect
-  colorSelections.forEach(element => {
-    element.classList.remove()
+  colorSelectionItem.forEach(element => {
+    element.classList.remove('selected')
+  })
+
+  //Show selected color
+  colorSelectionItem.forEach(element => {
+    if(element.getAttribute('selected') == 'true'){
+      element.classList.add('selected')
+    }
+  })
+
+}
+
+function eraseAll(){
+  let cellArrays = document.querySelectorAll('.cell');
+  
+  cellArrays.forEach(element => {
+    element.style = 'background-color: transparent'
   })
 
 }
 
   //Menu
   const menuColorPicker = document.querySelector('.pen-color');
-  let colorSelection = menuColorPicker
+  const menuEraser = document.querySelector('.eraser')
+  let colorSelectionDisplay = menuColorPicker
       .querySelector('.color-selection');
-      console.log(colorSelection.classList);
+      console.log(colorSelectionDisplay.classList);
   menuColorPicker.querySelector('.pen').addEventListener('click',
     () => {
-      
-      colorSelection.classList.toggle("show");
+      console.log('hello');
+      colorSelectionDisplay.classList.toggle("show");
     });
+
+  menuEraser.addEventListener('click', () => {
+    eraseAll();
+  })
+
   let selectedColor = "red";
-  let colorSelectionItem = colorSelection
+  let colorSelectionItem = colorSelectionDisplay
     .querySelectorAll('.color-selection-item');
   colorSelectionItem = Array.from(colorSelectionItem);
 
   colorSelectionItem.forEach(item => {
     item.addEventListener('click', () => {
 
-      selectedColor = item.getAttribute("color")
+      colorSelectionItem.forEach(element => {
+        element.setAttribute('selected', 'false')
+      });
+
+      item.setAttribute('selected', true);
+
+      showColorSelected();
     })
   })
 
