@@ -21,11 +21,6 @@ createEtchASketchGrid(10, 10);
 
 showColorSelected();
 
-menuColorPicker.querySelector(".pen").addEventListener("click", () => {
-  console.log("hello");
-  colorSelectionDisplay.classList.toggle("show");
-});
-
 menuEraser.addEventListener("click", () => {
   eraseAll();
 });
