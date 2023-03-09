@@ -19,7 +19,9 @@ sizeSelectionCard = document.querySelector(".size-selection");
 sizeSelectionElement = document.querySelectorAll(".size-selection-item");
 sizeSelectionElement = Array.from(sizeSelectionElement);
 
+
 createEtchASketchGrid(10, 10);
+menuEraserSlider.setAttribute('max', 10);
 
 showColorSelected();
 
@@ -52,6 +54,7 @@ sizeSelectionElement.forEach((selectionItem) => {
     rows = Number(selectionItem.getAttribute("Rows"));
 
     createEtchASketchGrid(cols, rows);
+    menuEraserSlider.setAttribute('max', cols);
     sizeSelectionCard.style = "display:none;";
   });
 });
