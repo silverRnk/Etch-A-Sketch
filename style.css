@@ -9,12 +9,27 @@ main{
     height: 99vh;
 }
 
+/*
+==========================
+frame
+==========================
+*/
+.frame{
+    width: 750px;
+    padding: 10px;
+    background-color: #FBFE6A;
+    display:grid;
+    grid-template-rows: 2rem 650px 1fr;
+}
+
 .content{
+    align-self: center;
+    justify-self: center;
     display:grid;
     border: 1px solid black;
-    height: 700px;
-    width: 700px;
-    
+    height: 650px;
+    width: 650px;
+    background-color: #f4eded;
 }
 
 .size-selection{
@@ -69,14 +84,23 @@ menu
 */
 
 .menu{
-    margin-right: 100px;
+    align-self: center;
+    justify-self: center;
+    margin: 10px 10px 0px;
     display: grid;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 130px;
-    height: 700px;
-    padding:20px;
-    border-radius: 20px;
-    box-shadow: 2px 2px 5px gray;
+    height: 100px;
+    background-color: white;
+}
+
+.slide-eraser{
+    grid-column: 1 / -1;
+}
+
+.slide-eraser>input{
+    display:block;
+    width: 660px;
 }
 
 
@@ -100,19 +124,15 @@ menu
 }
 
 .color-selection{
-    margin: 0 auto;
-    display: none;
-    grid-template-columns: 50px;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 0 10px;
+    display: flex;
     gap: 20px;
-}
-
-.show{
-    display: grid;
+    align-items: center;
 }
 
 .color-selection-item{
-    width: 100%;
+    width: 50px;
+    height: 50px;
     box-shadow: 2px 2px 5px lightgray;
     border-radius: 50%;
     cursor: pointer;
