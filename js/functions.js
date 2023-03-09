@@ -1,17 +1,14 @@
-//takes an element DOM, no of Column and Row in numbers, and
-// size in string
+
 function createGridDisplay(dom, noOfColumn, noOfRow, size) {
   let grids, cellCount;
   cellCount = noOfColumn * noOfRow;
   grids = "";
 
-  //create a grid cell
   dom.style =
     `grid-template-columns: repeat(${noOfColumn}, ${size});` +
     "\n" +
     `grid-template-rows: repeat(${noOfRow}, ${size});`;
 
-  //create a grid element
   for (let y = 0; y < noOfRow; y++) {
     let gridCell;
     for (let x = 0; x < noOfColumn; x++) {
@@ -25,11 +22,6 @@ function createGridDisplay(dom, noOfColumn, noOfRow, size) {
   dom.innerHTML = grids;
 }
 
-/*
-color is 'red', 'green, 'blue', or 'rnd_rgb'
-element is html element
-*/
-//Change element style background-color
 function changeElementBackgroundlColor(element, color) {
   if (color != "rnd_rgb") {
     element.style = `background-color: ${color}`;
@@ -42,9 +34,6 @@ function changeElementBackgroundlColor(element, color) {
   }
 }
 
-//Get color selection array of Elements
-// then return the color of selected
-// item in string
 function getSelectedColor(colorSelectionArray) {
   let findSelected = (array) => {
     let isElementSelected = (element) => {
@@ -78,7 +67,6 @@ function createEtchASketchGrid(noOfColumn, noOfRow) {
 
   createGridDisplay(etchASketchDisplay, noOfColumn, noOfRow, "1fr");
 
-  //defines the Cells in Array
   cellArray = etchASketchDisplay.getElementsByClassName("cell");
   cellArray = Array.prototype.slice.call(cellArray);
 
@@ -121,12 +109,10 @@ function showColorSelected() {
   );
   colorSelectionItem = Array.from(colorSelectionItem);
 
-  //remove deselect
   colorSelectionItem.forEach((element) => {
     element.classList.remove("selected");
   });
 
-  //Show selected color
   colorSelectionItem.forEach((element) => {
     if (element.getAttribute("selected") == "true") {
       element.classList.add("selected");
@@ -142,7 +128,6 @@ function eraseAll() {
   });
 }
 
-//get the column in number then delete erase the column
 function eraseColumnCells(colm){
   let cellArrayColms= document
   .querySelectorAll(`.cell[x-coord="${colm}"]`);
