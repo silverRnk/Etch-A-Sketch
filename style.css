@@ -35,6 +35,13 @@ frame
 }
 
 .frame-name{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Climate Crisis', cursive;
+    font-family: 'Gajraj One', cursive;
+    font-size: 2rem;
     
 }
 
