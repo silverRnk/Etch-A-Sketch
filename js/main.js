@@ -113,7 +113,7 @@ sizeSelectionElement.forEach(selectionItem => {
     selectionItem.addEventListener(
     'click', 
     () => {
-        let cols, rows;
+        let cols, rows, etchASketchDisplay;
         cols = Number(selectionItem.getAttribute('Cols'));
         rows = Number(selectionItem.getAttribute('Rows'));
 
