@@ -15,7 +15,8 @@ function createGridDisplay(dom, noOfColumn, noOfRow, size) {
   for (let y = 0; y < noOfRow; y++) {
     let gridCell;
     for (let x = 0; x < noOfColumn; x++) {
-      gridCell = '<div class="cell"' + `coord="(${x}, ${y})"></div>`;
+      gridCell = '<div class="cell"' + `x-coord="${x}" `
+      + `y-coord="${y}"` + "></div>";
 
       grids = grids + gridCell + "\n";
     }
